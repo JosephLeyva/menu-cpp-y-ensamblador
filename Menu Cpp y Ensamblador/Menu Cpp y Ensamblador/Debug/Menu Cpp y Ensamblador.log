@@ -1,0 +1,4 @@
+﻿  main.cpp
+E:\_Aguilera\Blue Cube Inside Studios\Proyectos Visual Studio\menu-cpp-y-ensamblador\Menu Cpp y Ensamblador\Menu Cpp y Ensamblador\Dibujo.h(17,23): warning C4838: la conversión de 'int' en 'SHORT' requiere una conversión de restricción
+E:\_Aguilera\Blue Cube Inside Studios\Proyectos Visual Studio\menu-cpp-y-ensamblador\Menu Cpp y Ensamblador\Menu Cpp y Ensamblador\Dibujo.h(17,30): warning C4838: la conversión de 'int' en 'SHORT' requiere una conversión de restricción
+  Menu Cpp y Ensamblador.vcxproj -> E:\_Aguilera\Blue Cube Inside Studios\Proyectos Visual Studio\menu-cpp-y-ensamblador\Menu Cpp y Ensamblador\Debug\Menu Cpp y Ensamblador.exe
