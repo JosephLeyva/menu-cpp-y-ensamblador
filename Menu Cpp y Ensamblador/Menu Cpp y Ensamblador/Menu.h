@@ -14,10 +14,6 @@ using namespace std;
 // Enumeración para las opciones del menú.
 enum MENU_OPCIONES { SALIR, ENCONTRAR_LETRA, MOSTRAR_PALABRAS, POSICIONES_LETRA, LONGITUD_CADENA };
 
-// Declaración de funciones.
-void ImprimirMenu(int& opcionUsuario, int posX, int posY);
-void LongitudCadena(const char cadena[]);
-
 
 // Función ImprimirMenu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 void ImprimirMenu(int& opcionUsuario, int posX, int posY)
@@ -32,12 +28,12 @@ void ImprimirMenu(int& opcionUsuario, int posX, int posY)
     const char opcion0[] = "Salir.";
 
     gotoxy(actualPosX, actualPosY++);
-    cout << "======= MENU GENERAL C++ Y ENSAMBLADOR =======\n\n";       gotoxy(actualPosX, actualPosY++);
-    cout << "[" << ENCONTRAR_LETRA     << "] " << opcion1 << "\n";      gotoxy(actualPosX, actualPosY++);
-    cout << "[" << MOSTRAR_PALABRAS    << "] " << opcion2 << "\n";      gotoxy(actualPosX, actualPosY++);
-    cout << "[" << POSICIONES_LETRA    << "] " << opcion3 << "\n";      gotoxy(actualPosX, actualPosY++);
-    cout << "[" << LONGITUD_CADENA     << "] " << opcion4 << "\n";      gotoxy(actualPosX, actualPosY++);
-    cout << "[" << SALIR               << "] " << opcion0 << "\n\n";    gotoxy(actualPosX, actualPosY++);
+    cout << "======= MENU GENERAL C++ Y ENSAMBLADOR =======";       gotoxy(actualPosX, actualPosY++);
+    cout << "[" << ENCONTRAR_LETRA     << "] " << opcion1;          gotoxy(actualPosX, actualPosY++);
+    cout << "[" << MOSTRAR_PALABRAS    << "] " << opcion2;          gotoxy(actualPosX, actualPosY++);
+    cout << "[" << POSICIONES_LETRA    << "] " << opcion3;          gotoxy(actualPosX, actualPosY++);
+    cout << "[" << LONGITUD_CADENA     << "] " << opcion4;          gotoxy(actualPosX, actualPosY++);
+    cout << "[" << SALIR               << "] " << opcion0;          gotoxy(actualPosX, actualPosY++);
 
     // Capturar la opción elegida por el usuario
     gotoxy(actualPosX, actualPosY++);
@@ -52,32 +48,105 @@ void ImprimirMenu(int& opcionUsuario, int posX, int posY)
 // Fin Función ImprimirMenu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-// Función LongitudCadena ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-void LongitudCadena(const char cadena[])
+// Funcion MostrarPalabras ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void EncontrarLetra(int posX, int posY)
 {
-    int longitudCadena = 0;
+    char letraBuscada;
 
+    // Titulo.
+    gotoxy(posX, posY++);
+    cout << "======= ENCONTRAR Y CONTAR UNA LETRA =======";
+
+    // Cadena original.
+    posY++;
+    gotoxy(posX, posY++);
+    cout << "La cadena es: " << cadenaEntrada;
+
+    // Capturar la letra que se va a buscar.
+    posY++;
+    gotoxy(posX, posY++);
+    cout << "Introduce la letra  a buscar: ";
+    cin >> letraBuscada;
+
+    // Posiciones.
+    posY++;
+    gotoxy(posX, posY++);
+    cout << "Ocurrencias: " << EncontrarLetraASM(letraBuscada, posX, posY);
+}
+// Fin MostrarPalabras ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+// Funcion MostrarPalabras ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void MostrarPalabras(int posX, int posY)
+{
+    // Titulo.
+    gotoxy(posX, posY++);
+    cout << "======= MOSTRAR PALABRAS =======";
+
+    // cadena original.
+    posY++;
+    gotoxy(posX, posY++);
+    cout << "La cadena es: " << cadenaEntrada;
+
+    // Palabras
+    posY++;
+    gotoxy(posX, posY++);
+    cout << "Las palabras de la cadena son:";
+
+    posX += 5; posY += 1;
+    MostrarPalabrasASM(posX, posY);
+}
+// Fin MostrarPalabras ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+// Función PosicionLetra ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void PosicionLetra(int posX, int posY)
+{
+    char letraBuscada;
+
+    // Titulo.
+    gotoxy(posX, posY++);
+    cout << "======= POSICION LETRA =======";
+
+    // Cadena original.
+    posY++;
+    gotoxy(posX, posY++);
+    cout << "La cadena es: " << cadenaEntrada;
+
+    // Capturar la letra que se va a buscar.
+    posY++;
+    gotoxy(posX, posY++);
+    cout << "Introduce la letra  a buscar: ";
+    cin >> letraBuscada;
+
+    // Posiciones.
+    posY++;
+    gotoxy(posX, posY++);
+    cout << "Las posiciones de la letra son:";
+
+    posX += 5; posY += 1;
+    PosicionLetraASM(letraBuscada, posX, posY);
+}
+// Fin Función PosicionLetra ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+// Función LongitudCadena ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void LongitudCadena(int posX, int posY)
+{
     system("CLS"); // Se limpia la pantalla.
 
     // Titulo.
-    cout << "\n\n ======= LONGITUD DE UNA CADENA =======\n\n";
+    gotoxy(posX, posY++);
+    cout << "======= LONGITUD DE UNA CADENA =======";
 
     // cadena original.
-    cout << "La cadena es: " << cadena << "\n";
+    posY++;
+    gotoxy(posX, posY++);
+    cout << "La cadena es: " << cadenaEntrada;
 
-    // Calculamos la longitud de la cadena.
-    longitudCadena = LongitudCadenaASM(cadena);
-
-    // Mostrar resultado.
-    cout << "Longitud: " << longitudCadena << "\n\n";
+    // Calculamos la longitud de la cadena y mostramos el resultado
+    posY++;
+    gotoxy(posX, posY++);
+    cout << "Longitud: " << LongitudCadenaASM();
 }
 // Fin Función LongitudCadena ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-// Separar Palabras ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-void Separar_Palabras()
-{
-    cout << "las palabras de la cadena son:" << endl;
-    SepararPalabrasASM();
-    return;
-}
-// Fin Separar Palabras ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -3,15 +3,18 @@
 
 using namespace std;
 
-
 // Función main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 int main()
 {
     // Variables -----------------------------------------
     int opcionUsuario;
+	int posX = 5, posY = 3;
 
+	gotoxy(posX, posY);
 	cout << "Introduzca una cadena inicial: ";
 	cin.get(cadenaEntrada, 100);
+
+	leng = strlen(cadenaEntrada);
 
     // Ciclo principal
     do
@@ -20,35 +23,32 @@ int main()
         system("CLS");
 
         // Imprimir el menu y campurar la opción del usuario.
-        ImprimirMenu(opcionUsuario, 5, 3);
+        ImprimirMenu(opcionUsuario, posX, posY);
 
 
-		// ------------------------------------------
+		// Invocar la función que corresponde con la elección del usuario.
 		switch (opcionUsuario) {
-		case ENCONTRAR_LETRA:
-			system("CLS");
-			cout << "\nOPCION 1\n";
-			break;
-		case MOSTRAR_PALABRAS:
-			system("CLS");
-			Separar_Palabras();
-			break;
-		case POSICIONES_LETRA:
-			system("CLS");
-			cout << "\nOPCION 3\n";
-			break;
-		case LONGITUD_CADENA:
-			LongitudCadena(cadenaEntrada);
-			break;
+			case ENCONTRAR_LETRA:
+				system("CLS");
+				EncontrarLetra(posX, posY);
+				break;
+			case MOSTRAR_PALABRAS:
+				system("CLS");
+				MostrarPalabras(posX, posY);
+				break;
+			case POSICIONES_LETRA:
+				system("CLS");
+				PosicionLetra(posX, posY);
+				break;
+			case LONGITUD_CADENA:
+				LongitudCadena(posX, posY);
+				break;
 		}
 
 
-        system("PAUSE");
+		gotoxy(3, 20); system("PAUSE");
 
     } while (opcionUsuario != SALIR);
-
-
-    cout << "\n\n\n\n\n\n";
 
     return 0;
 }
