@@ -10,6 +10,13 @@ int main()
     int opcionUsuario;
 	int posX = 5, posY = 3;
 
+	// Establecer el tamaño de la ventana.
+	TamVentana(ANCHO_VENTANA, ALTO_VENTANA);
+
+	// Imprimir marco.
+	ImprimeMarco();
+
+	// Capturar la cadena inicial.
 	gotoxy(posX, posY);
 	cout << "Introduzca una cadena inicial: ";
 	cin.get(cadenaEntrada, 100);
@@ -21,6 +28,9 @@ int main()
     {
         // Limpar la pantalla.
         system("CLS");
+
+		// Imprimir marco.
+		ImprimeMarco();
 
         // Imprimir el menu y campurar la opción del usuario.
         ImprimirMenu(opcionUsuario, posX, posY);
@@ -41,6 +51,7 @@ int main()
 				PosicionLetra(posX, posY);
 				break;
 			case LONGITUD_CADENA:
+				system("CLS");
 				LongitudCadena(posX, posY);
 				break;
 		}

@@ -18,30 +18,27 @@ enum MENU_OPCIONES { SALIR, ENCONTRAR_LETRA, MOSTRAR_PALABRAS, POSICIONES_LETRA,
 // Función ImprimirMenu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 void ImprimirMenu(int& opcionUsuario, int posX, int posY)
 {
-    int actualPosX = posX;
-    int actualPosY = posY;
-
     const char opcion1[] = "Encontrar y contar una letra.";
     const char opcion2[] = "Mostrar palabras con enter.";
     const char opcion3[] = "Identificar posiciones de una letra.";
     const char opcion4[] = "Obtener y mostrar longitud de una cadena.";
     const char opcion0[] = "Salir.";
 
-    gotoxy(actualPosX, actualPosY++);
-    cout << "======= MENU GENERAL C++ Y ENSAMBLADOR =======";       gotoxy(actualPosX, actualPosY++);
-    cout << "[" << ENCONTRAR_LETRA     << "] " << opcion1;          gotoxy(actualPosX, actualPosY++);
-    cout << "[" << MOSTRAR_PALABRAS    << "] " << opcion2;          gotoxy(actualPosX, actualPosY++);
-    cout << "[" << POSICIONES_LETRA    << "] " << opcion3;          gotoxy(actualPosX, actualPosY++);
-    cout << "[" << LONGITUD_CADENA     << "] " << opcion4;          gotoxy(actualPosX, actualPosY++);
-    cout << "[" << SALIR               << "] " << opcion0;          gotoxy(actualPosX, actualPosY++);
+    gotoxy(posX, posY++);
+    cout << "======= MENU GENERAL C++ Y ENSAMBLADOR =======";       gotoxy(posX, posY++);
+    cout << "[" << ENCONTRAR_LETRA     << "] " << opcion1;          gotoxy(posX, posY++);
+    cout << "[" << MOSTRAR_PALABRAS    << "] " << opcion2;          gotoxy(posX, posY++);
+    cout << "[" << POSICIONES_LETRA    << "] " << opcion3;          gotoxy(posX, posY++);
+    cout << "[" << LONGITUD_CADENA     << "] " << opcion4;          gotoxy(posX, posY++);
+    cout << "[" << SALIR               << "] " << opcion0;          gotoxy(posX, posY++);
 
     // Capturar la opción elegida por el usuario
-    gotoxy(actualPosX, actualPosY++);
+    gotoxy(posX, posY++);
     do {
         CapturaNumero(opcionUsuario, "\n Elige una opci\242n: ");
 
         if (opcionUsuario < SALIR || opcionUsuario > LONGITUD_CADENA)
-            cout << "---> ERROR: Debe elegir una opci\242n del men\243. Vuelve a intentarlo.\n";
+            cout << " ---> ERROR: Debe elegir una opci\242n del men\243. Vuelve a intentarlo.\n";
 
     } while (opcionUsuario < SALIR || opcionUsuario > LONGITUD_CADENA);
 }
@@ -52,6 +49,9 @@ void ImprimirMenu(int& opcionUsuario, int posX, int posY)
 void EncontrarLetra(int posX, int posY)
 {
     char letraBuscada;
+
+    // Imprimir marco.
+    ImprimeMarco();
 
     // Titulo.
     gotoxy(posX, posY++);
@@ -79,6 +79,9 @@ void EncontrarLetra(int posX, int posY)
 // Funcion MostrarPalabras ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 void MostrarPalabras(int posX, int posY)
 {
+    // Imprimir marco.
+    ImprimeMarco();
+
     // Titulo.
     gotoxy(posX, posY++);
     cout << "======= MOSTRAR PALABRAS =======";
@@ -103,6 +106,9 @@ void MostrarPalabras(int posX, int posY)
 void PosicionLetra(int posX, int posY)
 {
     char letraBuscada;
+
+    // Imprimir marco.
+    ImprimeMarco();
 
     // Titulo.
     gotoxy(posX, posY++);
@@ -133,7 +139,8 @@ void PosicionLetra(int posX, int posY)
 // Función LongitudCadena ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 void LongitudCadena(int posX, int posY)
 {
-    system("CLS"); // Se limpia la pantalla.
+    // Imprimir marco.
+    ImprimeMarco();
 
     // Titulo.
     gotoxy(posX, posY++);

@@ -33,13 +33,13 @@ void CapturaNumero(T& valorNum, const char solicitud[])
 		cin >> valorNum;
 
 		if (cin.bad()) {
-			cout << "\n---> ERROR: Ocurri\242 un error irrecuperable en el flijo de entrada. \n\n";
+			cout << "\n ---> ERROR: Ocurri\242 un error irrecuperable en el flijo de entrada. \n\n";
 			system("pause");
 			return;
 		}
 
 		if (cin.fail()) {
-			cout << "\n---> ERROR: No es un n\243mero. Vuelve a intentarlo. \n\n";
+			cout << "\n ---> ERROR: No es un n\243mero. Vuelve a intentarlo. \n\n";
 			cin.clear();
 			cin.ignore(10000, '\n');
 			continue;
@@ -48,5 +48,6 @@ void CapturaNumero(T& valorNum, const char solicitud[])
 	}
 }
 // Fin Función CapturaNumero ------------------------------------------------------------------
+
 
 #endif // CAPTURASEGURA_H_INCLUDED
