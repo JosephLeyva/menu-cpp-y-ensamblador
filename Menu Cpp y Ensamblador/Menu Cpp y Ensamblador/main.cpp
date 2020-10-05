@@ -47,7 +47,7 @@ int main()
     } while (opcionUsuario != SALIR);
 
 
-    cout << "\n\n\n\n\n\n\n\n\n\n";
+    cout << "\n\n\n\n\n\n";
 
     return 0;
 }
