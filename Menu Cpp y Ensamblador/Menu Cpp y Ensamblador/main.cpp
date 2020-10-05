@@ -18,7 +18,7 @@ int main()
         system("CLS");
 
         // Imprimir el menu y campurar la opción del usuario.
-        ImprimirMenu(opcionUsuario);
+        ImprimirMenu(opcionUsuario, 5, 3);
 
 
 		// ------------------------------------------

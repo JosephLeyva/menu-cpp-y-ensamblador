@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Dibujo.h"
 #include "CapturaSegura.h"
+#include "FuncionesEnsamblador.h"
 
 using namespace std;
 
@@ -14,27 +15,32 @@ using namespace std;
 enum MENU_OPCIONES { SALIR, ENCONTRAR_LETRA, MOSTRAR_PALABRAS, POSICIONES_LETRA, LONGITUD_CADENA };
 
 // Declaración de funciones.
-void ImprimirMenu(int& opcionUsuario);
+void ImprimirMenu(int& opcionUsuario, int posX, int posY);
 void LongitudCadena(const char cadena[]);
 
 
 // Función ImprimirMenu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-void ImprimirMenu(int& opcionUsuario)
+void ImprimirMenu(int& opcionUsuario, int posX, int posY)
 {
+    int actualPosX = posX;
+    int actualPosY = posY;
+
     const char opcion1[] = "Encontrar y contar una letra.";
     const char opcion2[] = "Mostrar palabras con enter.";
     const char opcion3[] = "Identificar posiciones de una letra.";
     const char opcion4[] = "Obtener y mostrar longitud de una cadena.";
     const char opcion0[] = "Salir.";
 
-    cout << "======= MENU GENERAL C++ Y ENSAMBLADOR =======\n\n";    
-    cout << "[" << ENCONTRAR_LETRA     << "] " << opcion1 << "\n";
-    cout << "[" << MOSTRAR_PALABRAS    << "] " << opcion2 << "\n";
-    cout << "[" << POSICIONES_LETRA    << "] " << opcion3 << "\n";
-    cout << "[" << LONGITUD_CADENA     << "] " << opcion4 << "\n";
-    cout << "[" << SALIR               << "] " << opcion0 << "\n\n";
+    gotoxy(actualPosX, actualPosY++);
+    cout << "======= MENU GENERAL C++ Y ENSAMBLADOR =======\n\n";       gotoxy(actualPosX, actualPosY++);
+    cout << "[" << ENCONTRAR_LETRA     << "] " << opcion1 << "\n";      gotoxy(actualPosX, actualPosY++);
+    cout << "[" << MOSTRAR_PALABRAS    << "] " << opcion2 << "\n";      gotoxy(actualPosX, actualPosY++);
+    cout << "[" << POSICIONES_LETRA    << "] " << opcion3 << "\n";      gotoxy(actualPosX, actualPosY++);
+    cout << "[" << LONGITUD_CADENA     << "] " << opcion4 << "\n";      gotoxy(actualPosX, actualPosY++);
+    cout << "[" << SALIR               << "] " << opcion0 << "\n\n";    gotoxy(actualPosX, actualPosY++);
 
     // Capturar la opción elegida por el usuario
+    gotoxy(actualPosX, actualPosY++);
     do {
         CapturaNumero(opcionUsuario, "\n Elige una opci\242n: ");
 
@@ -59,7 +65,8 @@ void LongitudCadena(const char cadena[])
     // cadena original.
     cout << "La cadena es: " << cadena << "\n";
 
-    // código ensamblador...
+    // Calculamos la longitud de la cadena.
+    longitudCadena = LongitudCadenaASM(cadena);
 
     // Mostrar resultado.
     cout << "Longitud: " << longitudCadena << "\n\n";
