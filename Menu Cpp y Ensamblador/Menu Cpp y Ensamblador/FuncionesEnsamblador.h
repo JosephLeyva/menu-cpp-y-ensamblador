@@ -2,7 +2,6 @@
 
 // Deifnimos la cadena que se va a utilizar.
 char cadenaEntrada[100];
-int leng = 0;
 
 
 // Función LongitudCadenaASM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16,11 +15,11 @@ int EncontrarLetraASM(char letraBuscada, int posX, int posY)
 
         BUSCAR:
             INC EDI	                    // Incrementamos el apuntador.
-            MOV	DL, [EDI]               // Pasamos el valor del caracter a dl
-            CMP	DL, '\0'                // Compara con fin de cadena
-            JE	TERMINAR                // Si se tiene el fin de cadena termina el proceso
-            CMP	letraBuscada, DL        // Comparamos el caracter en dl con la letra ingresada
-            JE	ACUMULADOR              // Si son iguales saltamos al acumulador
+            MOV	DL, [EDI]               // Pasamos el valor del caracter a dl.
+            CMP	DL, '\0'                // Compara con fin de cadena.
+            JE	TERMINAR                // Si se tiene el fin de cadena termina el proceso.
+            CMP	letraBuscada, DL        // Comparamos el caracter en dl con la letra ingresada.
+            JE	ACUMULADOR              // Si son iguales saltamos al acumulador.
             JMP	BUSCAR                  // Si no son iguales regresa a contar.
 
         ACUMULADOR :
@@ -43,41 +42,41 @@ void MostrarPalabrasASM(int posX, int posY)
 
     _asm
     {
-            LEA EDI, cadenaEntrada  // Inicializamos la cadena de entrada en el registro DI
-            LEA ESI, palabra        // Inicializamos la palabra en el registro SI
+            LEA EDI, cadenaEntrada  // Inicializamos la cadena de entrada en el registro DI.
+            LEA ESI, palabra        // Inicializamos la palabra en el registro SI.
             DEC EDI
 
         INIC :
-            INC EDI                 // Avanzamos al siguiente caracter de la cadena de entrada
-            MOV AL, [EDI]           // Movemos el caracter de la cadena a AL
-            CMP AL, '\0'            // Comparamos el caracter de la cadena con el fin de cadena
-            JE FINALIZAR_MP         // Si es el fin de cadena saltamos a finalizarSP
-            CMP al, 20h             // Comparamos el caracter de la cadena con un espacio
-            JE ESPACIO_MP           // Si es un espacio salta a espacioSP
-            MOV[ESI], AL            // Cualquier otro caracter es agregado a la cadena "palabra"
-            INC ESI                 // Avanzamos al siguiente espacio para la palabra
-            JMP INIC                // Regresamos al ciclo
+            INC EDI                 // Avanzamos al siguiente caracter de la cadena de entrada.
+            MOV AL, [EDI]           // Movemos el caracter de la cadena a AL.
+            CMP AL, '\0'            // Comparamos el caracter de la cadena con el fin de cadena.
+            JE FINALIZAR_MP         // Si es el fin de cadena saltamos a finalizarSP.
+            CMP al, 20h             // Comparamos el caracter de la cadena con un espacio.
+            JE ESPACIO_MP           // Si es un espacio salta a espacioSP.
+            MOV[ESI], AL            // Cualquier otro caracter es agregado a la cadena "palabra".
+            INC ESI                 // Avanzamos al siguiente espacio para la palabra.
+            JMP INIC                // Regresamos al ciclo.
 
         ESPACIO_MP :
-            MOV AL, '\0'            // Cuando encuentra un espacio en la cadenaEntrada se agrega un fin de cadena en la palabra
+            MOV AL, '\0'            // Cuando encuentra un espacio en la cadenaEntrada se agrega un fin de cadena en la palabra.
             MOV[ESI], AL
     }
 
     gotoxy(posX, posY++);
-    std::cout << contPalabras++ << ".- " << palabra;    // Imprime la palabra
+    std::cout << contPalabras++ << ".- " << palabra;    // Imprime la palabra.
 
     _asm 
     {
-            LEA ESI, palabra        // Volvemos al inicio de la palabra para volver a utilizar la misma cadena
-            JMP INIC                // Regresamos al inicio del ciclo para continuar con la busqueda
+            LEA ESI, palabra        // Volvemos al inicio de la palabra para volver a utilizar la misma cadena.
+            JMP INIC                // Regresamos al inicio del ciclo para continuar con la busqueda.
 
         FINALIZAR_MP :
             //mov al, '\0'
-            MOV[ESI], AL            // Agregamos el ultimo caracter a la palabra, la imprimimos y termina el programa
+            MOV[ESI], AL            // Agregamos el ultimo caracter a la palabra, la imprimimos y termina el programa.
     }
 
     gotoxy(posX, posY++);
-    std::cout << contPalabras++ << ".- " << palabra;    // Imprime la palabra
+    std::cout << contPalabras++ << ".- " << palabra;    // Imprime la palabra.
     return;
 }
 // Fin Función MostrarPalabrasASM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -116,8 +115,9 @@ int LongitudCadenaASM()
 // Función PosicionLetraASM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 int PosicionLetraASM(char letraBuscada, int posX, int posY)
 {
-    int posicion;       // Posición de la letra.
-    int bandera = 1;    // Bandera para saber si no se encontro el caracter.
+    int posicion;                       // Posición de la letra.
+    int bandera = 1;                    // Bandera para saber si no se encontro el caracter.
+    int leng = LongitudCadenaASM();     // Obtenemos la longitud de la cadena.
 
     _asm 
     {

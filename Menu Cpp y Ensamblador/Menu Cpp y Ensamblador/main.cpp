@@ -21,8 +21,6 @@ int main()
 	cout << "Introduzca una cadena inicial: ";
 	cin.get(cadenaEntrada, 100);
 
-	leng = strlen(cadenaEntrada);
-
     // Ciclo principal
     do
     {
