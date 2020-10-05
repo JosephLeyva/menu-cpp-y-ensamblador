@@ -72,3 +72,12 @@ void LongitudCadena(const char cadena[])
     cout << "Longitud: " << longitudCadena << "\n\n";
 }
 // Fin Función LongitudCadena ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Separar Palabras ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void Separar_Palabras()
+{
+    cout << "las palabras de la cadena son:" << endl;
+    SepararPalabrasASM();
+    return;
+}
+// Fin Separar Palabras ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

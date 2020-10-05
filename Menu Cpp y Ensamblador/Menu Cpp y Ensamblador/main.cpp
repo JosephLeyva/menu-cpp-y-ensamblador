@@ -9,7 +9,9 @@ int main()
 {
     // Variables -----------------------------------------
     int opcionUsuario;
-	const char cadenaPrueba[] = "Hola nundo";
+
+	cout << "Introduzca una cadena inicial: ";
+	cin.get(cadenaEntrada, 100);
 
     // Ciclo principal
     do
@@ -29,14 +31,14 @@ int main()
 			break;
 		case MOSTRAR_PALABRAS:
 			system("CLS");
-			cout << "\nOPCION 2\n";
+			Separar_Palabras();
 			break;
 		case POSICIONES_LETRA:
 			system("CLS");
 			cout << "\nOPCION 3\n";
 			break;
 		case LONGITUD_CADENA:
-			LongitudCadena(cadenaPrueba);
+			LongitudCadena(cadenaEntrada);
 			break;
 		}
 
