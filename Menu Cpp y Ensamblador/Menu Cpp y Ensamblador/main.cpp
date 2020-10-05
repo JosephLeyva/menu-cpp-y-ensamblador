@@ -36,8 +36,7 @@ int main()
 			cout << "\nOPCION 3\n";
 			break;
 		case LONGITUD_CADENA:
-			system("CLS");
-			cout << "\nOPCION 4\n";
+			LongitudCadena(cadenaPrueba);
 			break;
 		}
 

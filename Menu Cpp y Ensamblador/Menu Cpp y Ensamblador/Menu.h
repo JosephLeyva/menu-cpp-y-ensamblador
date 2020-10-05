@@ -7,11 +7,15 @@
 
 using namespace std;
 
+// Función Nombre ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Fin Función Nombre ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 // Enumeración para las opciones del menú.
 enum MENU_OPCIONES { SALIR, ENCONTRAR_LETRA, MOSTRAR_PALABRAS, POSICIONES_LETRA, LONGITUD_CADENA };
 
 // Declaración de funciones.
 void ImprimirMenu(int& opcionUsuario);
+void LongitudCadena(const char cadena[]);
 
 
 // Función ImprimirMenu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,3 +44,24 @@ void ImprimirMenu(int& opcionUsuario)
     } while (opcionUsuario < SALIR || opcionUsuario > LONGITUD_CADENA);
 }
 // Fin Función ImprimirMenu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+// Función LongitudCadena ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void LongitudCadena(const char cadena[])
+{
+    int longitudCadena = 0;
+
+    system("CLS"); // Se limpia la pantalla.
+
+    // Titulo.
+    cout << "\n\n ======= LONGITUD DE UNA CADENA =======\n\n";
+
+    // cadena original.
+    cout << "La cadena es: " << cadena << "\n";
+
+    // código ensamblador...
+
+    // Mostrar resultado.
+    cout << "Longitud: " << longitudCadena << "\n\n";
+}
+// Fin Función LongitudCadena ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
